@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aisa Dagle | Portfolio</title>
+    <!-- Font Awesome for social icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f9fafb;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        position: sticky;
+        top: 0;
+        background: #1e293b;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        z-index: 1000;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+
+      nav a {
+        color: white;
+        font-size: 1rem;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        transition: color 0.3s;
+      }
+
+      nav a:hover,
+      nav a.active {
+        color: #60a5fa;
+      }
+
+      nav a.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 2px;
+        background: #60a5fa;
+        border-radius: 2px;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, #1e293b, #3b82f6);
+        color: white;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+
+      header img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        border: 4px solid white;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      header h1 {
+        margin: 0.2rem 0;
+        font-size: 2.2rem;
+        font-weight: bold;
+      }
+
+      header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .social-links {
+        margin-top: 1rem;
+      }
+
+      .social-links a {
+        display: inline-block;
+        margin: 0 0.6rem;
+        color: white;
+        font-size: 1.5rem;
+        transition: transform 0.3s, color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: #ffd700;
+        transform: translateY(-3px);
+      }
+
+      /* Container */
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 1rem;
+      }
+
+      section {
+        margin-bottom: 2.5rem;
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+      }
+
+      section:hover {
+        transform: translateY(-3px);
+      }
+
+      section h2 {
+        margin-top: 0;
+        color: #1e293b;
+        border-left: 4px solid #3b82f6;
+        padding-left: 10px;
+        font-size: 1.5rem;
+      }
+
+      .skills {
+        margin-top: 1rem;
+      }
+
+      .skills span {
+        display: inline-block;
+        background: #e0f2fe;
+        color: #0369a1;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        margin: 0.3rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: background 0.3s;
+      }
+
+      .skills span:hover {
+        background: #bae6fd;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        background: #1e293b;
+        color: white;
+        font-size: 0.9rem;
+        margin-top: 2rem;
+      }
+
+      a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+      #contact {
+        margin: 2rem 0;
+        padding: 2rem;
+        background: #f8fafc;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      #contact h2 {
+        text-align: center;
+        color: #1e293b;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+      }
+
+      .contact-info {
+        flex: 1 1 250px;
+        font-size: 1rem;
+      }
+
+      .contact-info p {
+        margin: 0.8rem 0;
+      }
+
+      .contact-info i {
+        margin-right: 0.5rem;
+        color: #2563eb;
+      }
+
+      .contact-info a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+
+      .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      .contact-form {
+        flex: 1 1 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .contact-form button {
+        background: #2563eb;
+        color: white;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .contact-form button:hover {
+        background: #1e40af;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #1e293b;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      nav a {
+        color: #f1f5f9;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: color 0.3s, border-bottom 0.3s;
+        padding: 0.5rem 0;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: #60a5fa;
+      }
+
+      nav a.active {
+        color: #60a5fa;
+      }
+
+      /* underline effect on hover/active */
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0%;
+        height: 2px;
+        background: #60a5fa;
+        transition: width 0.3s;
+      }
+
+      nav a:hover::after,
+      nav a.active::after {
+        width: 100%;
+      }
+
+      /* Mobile friendly */
+      @media (max-width: 600px) {
+        nav {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+      header {
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        color: white;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+
+      header img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      header h1 {
+        margin: 0.5rem 0;
+        font-size: 2.2rem;
+        font-weight: 700;
+      }
+
+      header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 1.5rem;
+      }
+
+      .social-links a {
+        display: inline-block;
+        margin: 0 0.6rem;
+        color: white;
+        font-size: 1.6rem;
+        transition: transform 0.3s, color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: #60a5fa;
+        transform: translateY(-4px);
+      }
+      #about {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      #about:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      #about h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: #1e293b;
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Underline accent */
+      #about h2::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        background: #2563eb;
+        bottom: -6px;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      #about p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: #334155;
+      }
+      #skills {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        margin-top: 2rem;
+      }
+
+      #skills h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #1e293b;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+      }
+
+      #skills h2::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        background: #2563eb;
+        bottom: -6px;
+        left: 25%;
+        border-radius: 2px;
+      }
+
+      .skill {
+        margin: 1rem 0;
+      }
+
+      .skill p {
+        margin: 0 0 0.5rem;
+        font-weight: 500;
+        color: #1e293b;
+      }
+
+      .skill-bar {
+        background: #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden;
+        height: 24px;
+      }
+
+      .skill-level {
+        height: 100%;
+        background: linear-gradient(90deg, #2563eb, #60a5fa);
+        color: white;
+        text-align: right;
+        padding-right: 0.5rem;
+        line-height: 24px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        border-radius: 8px 0 0 8px;
+        transition: width 1.5s ease-in-out;
+      }
+      #experience {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        margin-top: 2rem;
+      }
+
+      #experience h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #1e293b;
+        text-align: center;
+        position: relative;
+        display: inline-block;
+      }
+
+      #experience h2::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        background: #2563eb;
+        bottom: -6px;
+        left: 25%;
+        border-radius: 2px;
+      }
+
+      .experience-item {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        border-left: 4px solid #2563eb;
+        background: #f8fafc;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      .experience-item:hover {
+        transform: translateX(5px);
+      }
+
+      .experience-header {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+      }
+
+      .experience-header h3 {
+        font-size: 1.2rem;
+        margin: 0;
+        color: #1e293b;
+      }
+
+      .experience-header .company {
+        font-weight: 500;
+        color: #475569;
+      }
+
+      .experience-header .date {
+        font-size: 0.9rem;
+        color: #64748b;
+      }
+
+      .experience-item ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        color: #334155;
+      }
+
+      .experience-item ul li {
+        margin-bottom: 0.5rem;
+      }
+      footer {
+        background: #1e293b; /* dark navy */
+        color: #f1f5f9;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 3rem;
+        font-size: 0.9rem;
+        border-top: 2px solid #2563eb;
+      }
+
+      footer p {
+        margin: 0;
+        letter-spacing: 0.5px;
+      }
+
+      footer a {
+        color: #60a5fa;
+        margin-left: 8px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: #93c5fd;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <a href="#about" class="active">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <img src="aisa.jpg" alt="Profile Picture" />
+      <h1>Aisa Dagle</h1>
+      <p>Full-Stack Developer | Problem Solver | Innovator</p>
+
+      <!-- Social Media Links -->
+      <div class="social-links">
+        <a href="https://www.facebook.com/aisa.rosel.dag" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a href="https://linkedin.com/" target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="https://github.com/" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://twitter.com/" target="_blank"
+          ><i class="fab fa-x-twitter"></i
+        ></a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          I am a passionate web developer with experience in creating modern,
+          responsive, and scalable applications. I enjoy solving problems,
+          learning new technologies, and building projects that make a positive
+          impact.
+        </p>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skill">
+          <p>HTML</p>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 90%">90%</div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <p>CSS</p>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 85%">85%</div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <p>JavaScript</p>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 80%">80%</div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <p>React</p>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 75%">75%</div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <p>Node.js</p>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 70%">70%</div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <p>Python</p>
+          <div class="skill-bar">
+            <div class="skill-level" style="width: 10%">10%</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-item">
+          <div class="experience-header">
+            <h3>Web Developer</h3>
+            <span class="company">Barangay Assistant</span>
+            <span class="date">2021 – Present</span>
+          </div>
+          <ul>
+            <li>
+              Developed responsive web applications using React and Node.js
+            </li>
+            <li>
+              Collaborated with cross-functional teams to deliver scalable
+              solutions
+            </li>
+            <li>Optimized performance and improved user experience</li>
+          </ul>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:aisa@gmail.com">aisa@gmail.com</a>
+            </p>
+            <p>
+              <i class="fab fa-facebook"></i>
+              <a href="https://www.facebook.com/aisa.rosel.dag" target="_blank">
+                facebook.com/aisa.rosel.dag
+              </a>
+            </p>
+            <p>
+              <i class="fab fa-github"></i>
+              <a href="https://github.com/aisadagle" target="_blank">
+                github.com/aisadagle
+              </a>
+            </p>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Aisa Dagle | All Rights Reserved</p>
+    </footer>
+
+    <script>
+      // Highlight active nav link while scrolling
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("nav a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 70;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").includes(current)) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
